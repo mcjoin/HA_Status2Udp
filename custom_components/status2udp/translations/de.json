@@ -4,7 +4,9 @@
       "user": {
         "title": "Entitäten auswählen",
         "description": "Wähle die Entitäten, deren Status per UDP an den Loxone Miniserver gesendet wird. Die Auswahl kann später in den Optionen der Integration geändert werden.",
-        "data": { "entities": "Entitäten" },
+        "data": {
+          "entities": "Entitäten"
+        },
         "data_description": {
           "entities": "Ein/Aus-artige Zustände (on, open, home, locked, …) werden als 1/0 gesendet, numerische Zustände als Zahl. Andere Zustände werden übersprungen."
         }
@@ -45,7 +47,9 @@
       },
       "entities": {
         "title": "Entitäten auswählen",
-        "data": { "entities": "Entitäten" }
+        "data": {
+          "entities": "Entitäten"
+        }
       },
       "miniserver": {
         "title": "Loxone Miniserver",
@@ -63,7 +67,7 @@
       },
       "loxone_template": {
         "title": "Loxone-Importvorlage",
-        "description": "**[Vorlage herunterladen]({url})** ({count} Entitäten, Port {port})\n\nDer Link ist 30 Minuten gültig. Startet der Download beim Klick nicht, den Link in einem neuen Tab öffnen.\n\nIn Loxone Config: *Virtuelle Eingänge* markieren → *Virtueller UDP Eingang* → *Vorlage importieren* und die heruntergeladene VIU_*.xml wählen."
+        "description": "**Download:** {link} ({count} Entitäten, Port {port})\n\nDer Link ist 30 Minuten gültig. Startet der Download nicht: Rechtsklick auf den Link → „Link speichern unter“.\n\nIn Loxone Config: *Virtuelle Eingänge* markieren → *Virtueller UDP Eingang* → *Vorlage importieren* und die heruntergeladene VIU_*.xml wählen."
       }
     },
     "error": {

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import html
 import socket
 from typing import Any
 
@@ -28,6 +29,7 @@ from .const import (
     DOMAIN,
 )
 from .download import async_signed_template_url
+from .loxone import template_filename
 
 
 def _entities_schema(default: list[str]) -> vol.Schema:
@@ -215,11 +217,18 @@ class Status2UdpOptionsFlow(OptionsFlow):
             # Nothing changed -> no reload.
             return self.async_create_entry(data=dict(self.config_entry.options))
         options = self.config_entry.options
+        url = async_signed_template_url(self.hass, self.config_entry.entry_id)
+        filename = template_filename(options.get(CONF_NAME) or self.config_entry.title)
+        # Plain HTML instead of a markdown link: the HA frontend routes clicks on
+        # same-origin links inside the app (-> dashboard). Links with a target or
+        # download attribute are left to the browser.
+        link = f'<a href="{html.escape(url)}" target="_blank" download="{html.escape(filename)}">{html.escape(filename)}</a>'
         return self.async_show_form(
             step_id="loxone_template",
             data_schema=vol.Schema({}),
             description_placeholders={
-                "url": async_signed_template_url(self.hass, self.config_entry.entry_id),
+                "url": url,
+                "link": link,
                 "count": str(len(options.get(CONF_ENTITIES, []))),
                 "port": str(options.get(CONF_PORT, DEFAULT_PORT)),
             },

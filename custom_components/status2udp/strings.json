@@ -4,7 +4,9 @@
       "user": {
         "title": "Select entities",
         "description": "Choose the entities whose state is sent to the Loxone Miniserver via UDP. You can change this later in the integration options.",
-        "data": { "entities": "Entities" },
+        "data": {
+          "entities": "Entities"
+        },
         "data_description": {
           "entities": "On/off-like states (on, open, home, locked, ...) are sent as 1/0, numeric states as number. Other states are skipped."
         }
@@ -45,7 +47,9 @@
       },
       "entities": {
         "title": "Select entities",
-        "data": { "entities": "Entities" }
+        "data": {
+          "entities": "Entities"
+        }
       },
       "miniserver": {
         "title": "Loxone Miniserver",
@@ -63,7 +67,7 @@
       },
       "loxone_template": {
         "title": "Loxone import template",
-        "description": "**[Download template]({url})** ({count} entities, port {port})\n\nThe link is valid for 30 minutes. If clicking it does not start a download, open it in a new tab.\n\nIn Loxone Config: select *Virtual Inputs* → *Virtual UDP Input* → *Import template* and choose the downloaded VIU_*.xml file."
+        "description": "**Download:** {link} ({count} entities, port {port})\n\nThe link is valid for 30 minutes. If the download does not start, right-click the link and choose 'Save link as'.\n\nIn Loxone Config: select *Virtual Inputs* → *Virtual UDP Input* → *Import template* and choose the downloaded VIU_*.xml file."
       }
     },
     "error": {

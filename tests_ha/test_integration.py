@@ -136,6 +136,9 @@ async def test_template_download(hass: HomeAssistant, hass_client_no_auth, recei
     assert result["step_id"] == "loxone_template"
     url = result["description_placeholders"]["url"]
     assert "authSig=" in url
+    link = result["description_placeholders"]["link"]
+    assert 'target="_blank"' in link and f'href="{url}"' in link
+    assert ">VIU_Mein_HA.xml</a>" in link
 
     client = await hass_client_no_auth()
     unsigned = await client.get(url.split("?")[0])
