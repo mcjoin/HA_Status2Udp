@@ -1,0 +1,76 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Select entities",
+        "description": "Choose the entities whose state is sent to the Loxone Miniserver via UDP. You can change this later in the integration options.",
+        "data": { "entities": "Entities" },
+        "data_description": {
+          "entities": "On/off-like states (on, open, home, locked, ...) are sent as 1/0, numeric states as number. Other states are skipped."
+        }
+      },
+      "miniserver": {
+        "title": "Loxone Miniserver",
+        "data": {
+          "name": "Name",
+          "host": "Miniserver IP address or hostname",
+          "port": "UDP port",
+          "prefix": "Message prefix",
+          "refresh_interval": "Resend interval"
+        },
+        "data_description": {
+          "name": "Also used as title of the Loxone virtual UDP input.",
+          "port": "Must match the port of the virtual UDP input in Loxone Config.",
+          "prefix": "Packets look like PREFIX + entity_id + \"=\" + value, e.g. ha/sensor.temperature=21.5.",
+          "refresh_interval": "Resend all values periodically (e.g. after a Miniserver restart). 0 = off."
+        }
+      }
+    },
+    "error": {
+      "no_entities": "Select at least one entity.",
+      "cannot_resolve": "Host cannot be resolved.",
+      "invalid_prefix": "The prefix must not contain a backslash or '='.",
+      "already_configured": "This Miniserver (host and port) is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Status2UDP",
+        "menu_options": {
+          "entities": "Change entities",
+          "miniserver": "Change Miniserver settings",
+          "loxone_template": "Download Loxone import template"
+        }
+      },
+      "entities": {
+        "title": "Select entities",
+        "data": { "entities": "Entities" }
+      },
+      "miniserver": {
+        "title": "Loxone Miniserver",
+        "data": {
+          "name": "Name",
+          "host": "Miniserver IP address or hostname",
+          "port": "UDP port",
+          "prefix": "Message prefix",
+          "refresh_interval": "Resend interval"
+        },
+        "data_description": {
+          "prefix": "Changing the prefix requires re-importing the template in Loxone Config.",
+          "refresh_interval": "Resend all values periodically. 0 = off."
+        }
+      },
+      "loxone_template": {
+        "title": "Loxone import template",
+        "description": "**[Download template]({url})** ({count} entities, port {port})\n\nThe link is valid for 30 minutes. If clicking it does not start a download, open it in a new tab.\n\nIn Loxone Config: select *Virtual Inputs* → *Virtual UDP Input* → *Import template* and choose the downloaded VIU_*.xml file."
+      }
+    },
+    "error": {
+      "no_entities": "Select at least one entity.",
+      "cannot_resolve": "Host cannot be resolved.",
+      "invalid_prefix": "The prefix must not contain a backslash or '='.",
+      "already_configured": "This Miniserver (host and port) is already configured."
+    }
+  }
+}

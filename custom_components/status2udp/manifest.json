@@ -1,0 +1,13 @@
+{
+  "domain": "status2udp",
+  "name": "Status2UDP (Loxone)",
+  "codeowners": [],
+  "config_flow": true,
+  "dependencies": ["http"],
+  "documentation": "https://github.com/OWNER/HA_Status2Udp",
+  "integration_type": "service",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/OWNER/HA_Status2Udp/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
